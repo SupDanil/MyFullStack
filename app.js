@@ -4,15 +4,18 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-const PORT = config.get('port') || 5000;
+app.use('/api/auth')
 
-async function start (){
+const PORT = config.get('port') || 3000;
+
+async function start(uri, callback){
     try {
-        await mongoose.connect(config.get('mongoUri'),{
+        await mongoose.connect(config.get('mongoUri'), {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            useCreateIndex: true,
-            });
+            // useCreateIndex: true,
+
+        });
         app.listen(PORT, () => console.log(PORT , "port"));
     } catch (e) {
         console.log("Server error", e.message);
