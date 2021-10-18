@@ -4,7 +4,7 @@
   "description": "Mongo,Express,React,Node",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "go": "node app.js",
     "server": "nodemon app.js",
     "stop": "nodemon kill-port 4000",
     "client": "npm run start --prefix client",
@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "concurrently": "^6.3.0",
+    "kill-port": "^1.6.1",
     "nodemon": "^2.0.13"
   }
 }

@@ -12,13 +12,15 @@ router.post(
     [
         check('email','Не корректный email').isEmail(),
         check('password','Минимальная длина пароля 6 символов').isLength({min: 6}),
-
     ],
     async (req, res) => {
     try {
         const errors = validationResult(req)
 
-        if (errors.isEmpty()){
+        console.log(req.body)
+        console.log(errors)
+
+        if (!errors.isEmpty()){
             return res.status(400).json({
                 errors: errors.array(),
                 message: "Не корректные данне при регистрации"
@@ -52,6 +54,7 @@ router.post(
     ],
     async (req, res) => {
         try {
+
             const errors = validationResult(req)
 
             if (errors.isEmpty()){

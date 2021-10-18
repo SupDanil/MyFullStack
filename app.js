@@ -4,9 +4,11 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+app.use(express.json({extended: true}));
+
 app.use('/api/auth', require('./Routes/auth.routes'))
 
-const PORT = config.get('port') || 3000;
+const PORT = config.get('port') || 4000;
 
 async function start(uri, callback){
     try {
@@ -14,7 +16,6 @@ async function start(uri, callback){
             useNewUrlParser: true,
             useUnifiedTopology: true,
             // useCreateIndex: true,
-
         });
         app.listen(PORT, () => console.log(PORT , "port"));
     } catch (e) {
