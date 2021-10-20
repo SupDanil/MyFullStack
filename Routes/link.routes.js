@@ -6,7 +6,7 @@ const config = require('config')
 const shortid = require('shortid')
 
 router.post('/generate',auth, async (req, res) => {
-
+    console.log('Создание')
     try {
         const baseUrl = config.get('baseUrl')
         const {from} = req.body
@@ -37,7 +37,8 @@ router.post('/generate',auth, async (req, res) => {
     }
 })
 
-router.post('/', auth, async (req, res) => {
+router.get('/', auth, async (req, res) => {
+    console.log('Прост')
     try {
         const links = await Link.find({owner: req.user.userId})
         res.json(links)
@@ -46,7 +47,8 @@ router.post('/', auth, async (req, res) => {
     }
 })
 
-router.post('/:id', auth, async (req, res) => {
+router.get('/:id', auth, async (req, res) => {
+    console.log('С айди')
     try {
         const link = await Link.findById(req.params.id)
         res.json(link)

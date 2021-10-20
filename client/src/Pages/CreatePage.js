@@ -1,12 +1,14 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {useHttp} from "../Hooks/http.hook";
 import {AuthContext} from "../Context/AuthContext";
+import {useHistory} from 'react-router-dom'
 
 
 export const CreatePage = () =>{
     const auth = useContext(AuthContext)
     const [link, setLink] = useState('')
     const {request} = useHttp()
+    const history = useHistory()
 
     useEffect(() => {
         window.M.updateTextFields()
@@ -20,7 +22,7 @@ export const CreatePage = () =>{
                   Authorization: `Bearer ${auth.token}`
               })
                 if(data){
-                    console.log("все норм")
+                    history.push(`/detail/${data.link._id}`);
                 }
 
             } catch (e) {}
