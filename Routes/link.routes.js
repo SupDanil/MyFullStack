@@ -16,10 +16,12 @@ router.post('/generate',auth, async (req, res) => {
         const existing = await Link.findOne({from})
 
         if(existing){
-           return res(200).json({link: existing})
+           return res.status(200).json({link: existing})
         }
 
         const to = baseUrl + '/t' + code
+
+
 
         const link = new Link({
             code, to, from , owner: req.user.userId

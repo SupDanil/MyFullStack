@@ -50,6 +50,7 @@ router.post(
         check('password', 'Введите пароль').exists(),
     ],
     async (req, res) => {
+
         try {
 
             const errors = validationResult(req)

@@ -13,11 +13,15 @@ export const CreatePage = () =>{
     },[])
 
     const pressHandler = async event => {
+
         if(event.key === 'Enter'){
             try{
               const data = await request('/api/link/generate', 'POST', {from: link}, {
                   Authorization: `Bearer ${auth.token}`
               })
+                if(data){
+                    console.log("все норм")
+                }
 
             } catch (e) {}
         }
