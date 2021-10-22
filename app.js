@@ -8,6 +8,8 @@ app.use(express.json({extended: true}));
 
 app.use('/api/auth', require('./Routes/auth.routes'))
 app.use('/api/link', require('./Routes/link.routes'))
+app.use('/dakon', require('./Routes/redirect.routes'))
+app.use('/delete', require('./Routes/delete.route'))
 
 const PORT = config.get('port') || 4000;
 

@@ -4,6 +4,7 @@ import {LinksPage} from "./Pages/LinksPage";
 import {CreatePage} from "./Pages/CreatePage";
 import {DetailPage} from "./Pages/DetailPage";
 import {AuthPage} from "./Pages/AuthPage";
+import {SuccessfulDeletePage} from "./Pages/SuccessfulDeletePage";
 
 export const useRoutes = isAuthenticated =>{
     if(isAuthenticated){
@@ -12,7 +13,9 @@ export const useRoutes = isAuthenticated =>{
                 <Route path="/links" exact><LinksPage /> </Route>
                 <Route path="/create" exact><CreatePage /> </Route>
                 <Route path="/detail/:id" ><DetailPage /> </Route>
+                <Route path="/success_delete" ><SuccessfulDeletePage /> </Route>
                 <Redirect to="/create"/>
+
             </Switch>
         )
     }

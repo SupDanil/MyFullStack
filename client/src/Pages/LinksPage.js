@@ -14,7 +14,7 @@ export const LinksPage = () => {
             const fetched = await request('/api/link', 'GET',null,{
                 Authorization: `Bearer ${token}`
             })
-            console.log(fetched,"sadas")
+
             setLinks(fetched)
         } catch (e) {}
     }, [token , request])
