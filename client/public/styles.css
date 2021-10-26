@@ -1,0 +1,6 @@
+.canvas{
+    position: absolute;
+    top: 0px;
+    display: inline-block;
+    z-index: -99999999;
+}

@@ -2,6 +2,7 @@ import React, {useCallback, useContext, useEffect, useState} from 'react';
 import {useHttp} from "../Hooks/http.hook";
 import {AuthContext} from "../Context/AuthContext";
 import {useHistory} from "react-router-dom";
+import {TreeDModel} from "./3dModel";
 
 export const LinkCard = ({link}) => {
 
@@ -43,6 +44,8 @@ export const LinkCard = ({link}) => {
 
     return (
         <>
+            <TreeDModel/>
+
             <h2>Ссылка</h2>
             <p>Ваша ссылка: <a href={newUrl} target="_blank" rel="noopener noreferrer">{newUrl}</a></p>
             <p>Откуда: <a href={link.from} target="_blank" rel="noopener noreferrer">{link.from}</a></p>
